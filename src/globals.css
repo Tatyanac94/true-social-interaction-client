@@ -1,27 +1,109 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Light mode variables */
+  --background-color-light: #f9f9f9; /* Light grey background */
+  --text-color-light: #333333;       /* Dark grey text color */
+  --button-color-light: #4A90E2;     /* Primary button color */
+  --button-hover-color-light: #357ABD; /* Button hover color */
+  --bubble-color: #ffffff;           /* Post bubble background color */
+  --bubble-shadow: rgba(0, 0, 0, 0.1); /* Shadow for bubbles */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Dark mode variables */
+  --background-color-dark: #121212;  /* Dark background */
+  --text-color-dark: #000000;        /* Black text color */
+  --button-color-dark: #4A90E2;      /* Same button color or adjust if needed */
+  --button-hover-color-dark: #357ABD; /* Adjust button hover color if needed */
+  --bubble-color-dark: #1a1a1a;      /* Darker bubble color */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  font-family: Arial, sans-serif; /* Friendly font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+body.dark {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark); /* All text should be black in dark mode */
+}
+
+header {
+  text-align: center; /* Centering the header */
+  padding: 20px 0; /* Add padding */
+}
+
+.create-post {
+  margin: 20px auto; /* Center the create post section */
+  width: 80%; /* Limit width */
+  max-width: 600px; /* Maximum width */
+}
+
+.bubble {
+  background-color: var(--bubble-color);
+  border-radius: 15px; /* Rounded corners */
+  padding: 15px;
+  margin: 10px 0; /* Space between posts */
+  box-shadow: 0 2px 5px var(--bubble-shadow); /* Subtle shadow */
+  transition: box-shadow 0.3s;
+}
+
+body.dark .bubble {
+  background-color: var(--bubble-color-dark); /* Darker bubble color in dark mode */
+}
+
+.bubble:hover {
+  box-shadow: 0 4px 10px var(--bubble-shadow); /* More shadow on hover */
+}
+
+button {
+  background-color: var(--button-color-light);
+  color: white;
+  border: none;
+  border-radius: 25px; /* Slightly rounded button */
+  padding: 10px 20px; /* Padding for button */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+body.dark button {
+  background-color: var(--button-color-dark); /* Button color in dark mode */
+}
+
+button:hover {
+  background-color: var(--button-hover-color-light);
+}
+
+body.dark button:hover {
+  background-color: var(--button-hover-color-dark); /* Button hover color in dark mode */
+}
+
+.theme-toggle {
+  position: absolute; /* Position relative to the nearest positioned ancestor */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  background-color: var(--button-color-light); /* Button background */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 25px; /* Slightly rounded button */
+  padding: 10px 15px; /* Padding for button */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+body.dark .theme-toggle {
+  background-color: var(--button-color-dark); /* Theme toggle background in dark mode */
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-hover-color-light);
+}
+
+body.dark .theme-toggle:hover {
+  background-color: var(--button-hover-color-dark); /* Theme toggle hover color in dark mode */
 }

@@ -1,16 +1,5 @@
-import localFont from "next/font/local";
-import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "../globals.css";
+import { ThemeProvider } from '../app/themeContext'; // Adjust the path as necessary
 
 export const metadata = {
   title: "Create Next App",
@@ -20,10 +9,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <ThemeProvider>
+          <header className="flex justify-between items-center p-4 bg-gray-200">
+            <h1 className="text-xl font-bold">Social Interaction App</h1>
+            
+          </header>
+          <main className="p-4">{children}</main>
+          <footer className="text-center p-4">
+            <p>&copy; {new Date().getFullYear()} Social Interaction App</p>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );
