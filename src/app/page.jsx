@@ -6,7 +6,8 @@ import ThemeToggle from '../app/components/themeToggle';
 import Comments from '../app/components/comments';
 import axios from 'axios';
 import Likes from '../app/components/likes';
-import { useTheme } from '../app/themeContext'; 
+import { useTheme } from '../app/themeContext';
+import errorHandler from '../utils/errorHandler'; 
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -19,6 +20,8 @@ const Home = () => {
       const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
       setPosts(response.data);
     } catch (error) {
+      const handledError = errorHandler(error);
+      alert(handledError.message);
       console.error('Error fetching posts:', error);
     } finally {
       setLoading(false); 
