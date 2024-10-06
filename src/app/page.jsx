@@ -6,22 +6,22 @@ import ThemeToggle from '../app/components/themeToggle';
 import Comments from '../app/components/comments';
 import axios from 'axios';
 import Likes from '../app/components/likes';
-import { useTheme } from '../app/themeContext'; // Correctly import the useTheme hook
+import { useTheme } from '../app/themeContext'; 
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
-  const { theme } = useTheme(); // Use the hook to access the theme
+  const [loading, setLoading] = useState(true); 
+  const { theme } = useTheme(); 
 
   const fetchPosts = async () => {
-    setLoading(true); // Set loading to true before fetching
+    setLoading(true); 
     try {
       const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
       setPosts(response.data);
     } catch (error) {
       console.error('Error fetching posts:', error);
     } finally {
-      setLoading(false); // Set loading to false after fetching
+      setLoading(false); 
     }
   };
 
