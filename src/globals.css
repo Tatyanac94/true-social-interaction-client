@@ -4,74 +4,74 @@
 
 :root {
   /* Light mode variables */
-  --background-color-light: #f9f9f9; /* Light grey background */
-  --text-color-light: #333333;       /* Dark grey text color */
-  --button-color-light: #4A90E2;     /* Primary button color */
-  --button-hover-color-light: #357ABD; /* Button hover color */
-  --bubble-color: #ffffff;           /* Post bubble background color */
-  --bubble-shadow: rgba(0, 0, 0, 0.1); /* Shadow for bubbles */
+  --background-color-light: #f9f9f9; 
+  --text-color-light: #333333;      
+  --button-color-light: #4A90E2;    
+  --button-hover-color-light: #357ABD;
+  --bubble-color: #ffffff;
+  --bubble-shadow: rgba(0, 0, 0, 0.1);
 
   /* Dark mode variables */
-  --background-color-dark: #121212;  /* Dark background */
-  --text-color-dark: #000000;        /* Black text color */
-  --button-color-dark: #4A90E2;      /* Same button color or adjust if needed */
-  --button-hover-color-dark: #357ABD; /* Adjust button hover color if needed */
-  --bubble-color-dark: #1a1a1a;      /* Darker bubble color */
+  --background-color-dark: #121212;
+  --text-color-dark: #000000;
+  --button-color-dark: #4A90E2;
+  --button-hover-color-dark: rgba(0, 193, 252, 0.95);
+  --bubble-color-dark: #1a1a1a;
 }
 
 body {
   background-color: var(--background-color-light);
   color: var(--text-color-light);
-  font-family: Arial, sans-serif; /* Friendly font */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body.dark {
   background-color: var(--background-color-dark);
-  color: var(--text-color-dark); /* All text should be black in dark mode */
+  color: var(--text-color-dark);
 }
 
 header {
-  text-align: center; /* Centering the header */
-  padding: 20px 0; /* Add padding */
+  text-align: center;
+  padding: 20px 0;
 }
 
 .create-post {
-  margin: 20px auto; /* Center the create post section */
-  width: 80%; /* Limit width */
-  max-width: 600px; /* Maximum width */
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
 }
 
 .bubble {
   background-color: var(--bubble-color);
-  border-radius: 15px; /* Rounded corners */
+  border-radius: 15px; 
   padding: 15px;
-  margin: 10px 0; /* Space between posts */
-  box-shadow: 0 2px 5px var(--bubble-shadow); /* Subtle shadow */
+  margin: 10px 0;
+  box-shadow: 0 2px 5px var(--bubble-shadow);
   transition: box-shadow 0.3s;
 }
 
 body.dark .bubble {
-  background-color: var(--bubble-color-dark); /* Darker bubble color in dark mode */
+  background-color: var(--bubble-color-dark);
 }
 
 .bubble:hover {
-  box-shadow: 0 4px 10px var(--bubble-shadow); /* More shadow on hover */
+  box-shadow: 0 4px 10px var(--bubble-shadow);
 }
 
 button {
   background-color: var(--button-color-light);
   color: white;
   border: none;
-  border-radius: 25px; /* Slightly rounded button */
-  padding: 10px 20px; /* Padding for button */
+  border-radius: 25px;
+  padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 body.dark button {
-  background-color: var(--button-color-dark); /* Button color in dark mode */
+  background-color: var(--button-color-dark);
 }
 
 button:hover {
@@ -79,25 +79,25 @@ button:hover {
 }
 
 body.dark button:hover {
-  background-color: var(--button-hover-color-dark); /* Button hover color in dark mode */
+  background-color: var(--button-hover-color-dark);
 }
 
 .theme-toggle {
-  position: absolute; /* Position relative to the nearest positioned ancestor */
-  top: 20px; /* Distance from the top */
-  right: 20px; /* Distance from the right */
-  background-color: var(--button-color-light); /* Button background */
-  color: white; /* Text color */
+  position: absolute; 
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-color-light); 
+  color: white; 
   border: none;
-  border-radius: 25px; /* Slightly rounded button */
-  padding: 10px 15px; /* Padding for button */
+  border-radius: 25px;
+  padding: 10px 15px; 
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 1000; /* Ensure it's above other elements */
+  z-index: 1000;
 }
 
 body.dark .theme-toggle {
-  background-color: var(--button-color-dark); /* Theme toggle background in dark mode */
+  background-color: var(--button-color-dark); 
 }
 
 .theme-toggle:hover {
@@ -105,7 +105,7 @@ body.dark .theme-toggle {
 }
 
 body.dark .theme-toggle:hover {
-  background-color: var(--button-hover-color-dark); /* Theme toggle hover color in dark mode */
+  background-color: var(--button-hover-color-dark); 
 }
 
 
@@ -114,8 +114,8 @@ body.dark .theme-toggle:hover {
   border: none;
   color: blue;
   cursor: pointer;
-  text-decoration: underline; /* Makes it look like a link */
-  padding: 8px; /* Optional padding for better click area */
+  text-decoration: underline;
+  padding: 8px; 
 }
 
 .tooltip {
@@ -124,27 +124,26 @@ body.dark .theme-toggle:hover {
   border: 1px solid #ccc;
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure it appears above other content */
-  top: 30px; /* Adjust as necessary to position the tooltip */
-  left: 0; /* Adjust as necessary */
+  z-index: 1000;
+  top: 30px; 
+  left: 0; 
 }
 
 .tooltip ul {
-  list-style-type: none; /* Remove bullet points */
+  list-style-type: none; 
   padding: 0;
 }
 
 .tooltip li {
-  margin: 5px 0; /* Spacing between usernames */
+  margin: 5px 0;
 }
 
-
-
-
 .shadow-dark {
-  box-shadow: 0 10px 20px rgba(0, 193, 252, 0.95); /* Custom blue shadow for dark mode */
+  box-shadow: 0 10px 20px rgba(0, 193, 252, 0.95); 
 }
 
 .shadow-blue-500 {
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Blue shadow for light mode */
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); 
 }
+
+
