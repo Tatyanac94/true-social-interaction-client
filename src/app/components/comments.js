@@ -54,7 +54,11 @@ const Comments = ({ postId, existingComments }) => {
           required
           className="w-full h-30 p-2 border rounded" 
         />
-        <button type="submit">Comment</button>
+        <div className="flex justify-center mt-2">
+      <button type="submit" className="bg-blue-500 text-white rounded px-4 py-2">
+        Add a Comment
+      </button>
+    </div>
       </form>
       <ul>
         {comments.map((comment) => (

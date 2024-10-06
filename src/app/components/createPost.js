@@ -39,7 +39,7 @@ const CreatePost = ({ onPostCreated }) => {
         required
         className="w-full h-32 p-2 border rounded"
       />
-      <div className="post-footer flex justify-center mt-2"> {/* Change to justify-center */}
+      <div className="post-footer flex justify-center mt-2">
     <button type="submit" className="bg-blue-500 text-white rounded px-4 py-2">
       Create Post
     </button>
