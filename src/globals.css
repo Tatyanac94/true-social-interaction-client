@@ -137,3 +137,14 @@ body.dark .theme-toggle:hover {
 .tooltip li {
   margin: 5px 0; /* Spacing between usernames */
 }
+
+
+
+
+.shadow-blue {
+  box-shadow: 0 15px 50px rgba(0, 193, 252, 0.95);/* Blue shadow */
+}
+
+.shadow-blue-500 {
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.5); /* Blue shadow */
+}

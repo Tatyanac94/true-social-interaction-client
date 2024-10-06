@@ -26,15 +26,17 @@ const Likes = ({ postId }) => {
     e.preventDefault();
     const username = prompt("Enter your name (optional):");
   
-    if (username === null || username.trim() === '') {
+    if (username === null) {
       return; 
     }
     
-    localStorage.setItem('username', username);
+    const finalUsername = username.trim() === '' ? 'Anonymous' : username;
+  
+    localStorage.setItem('username', finalUsername);
   
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/likes/posts/${postId}/likes`, { username });
-      setLikes((prevLikes) => [...prevLikes, { username }]);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/likes/posts/${postId}/likes`, { username: finalUsername });
+      setLikes((prevLikes) => [...prevLikes, { username: finalUsername }]);
       setIsLiked(true);
     } catch (error) {
       console.error('Error liking post:', error);
