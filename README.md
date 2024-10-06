@@ -60,6 +60,8 @@ Open your browser and navigate to <http://localhost:3000> to see the app in acti
 
 ## Technologies and Resources Used
 
+- [Social-Interaction](https://social-interaction.vercel.app/): The backend service hosted at deployed-snacks-project.vercel.app, serving as a database of snacks listed in JSON format. ([GitHub Repository](https://github.com/Tatyanac94/social-interaction.git)).
+
 - React: A JavaScript library for building user interfaces.
 
 - Tailwind CSS: A utility-first CSS framework for styling.
