@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import CommentLikes from './commentLikes';
 import axios from 'axios';
 
 const Comments = ({ postId, existingComments }) => {
@@ -64,6 +65,7 @@ const Comments = ({ postId, existingComments }) => {
         {comments.map((comment) => (
           <li key={comment.id}>
             <strong>{comment.username || 'Anonymous'}:</strong> {comment.content}
+            <CommentLikes commentId={comment.id} /> {/* Add the CommentLikes component here */}
             <p className="text-sm text-gray-500">Commented on: {formatDate(comment.timestamp)}</p>
           </li>
         ))}
