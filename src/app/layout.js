@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
           </header>
           <main className="p-4">{children}</main>
           <footer className="text-center p-4">
-            <p>&copy; {new Date().getFullYear()} True Social Interaction App</p>
+            <p>&copy; {new Date().getFullYear()} - TC - True Social Interaction - Module 4</p>
           </footer>
         </ThemeProvider>
       </body>

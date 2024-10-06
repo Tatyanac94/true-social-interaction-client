@@ -141,10 +141,10 @@ body.dark .theme-toggle:hover {
 
 
 
-.shadow-blue {
-  box-shadow: 0 15px 50px rgba(0, 193, 252, 0.95);/* Blue shadow */
+.shadow-dark {
+  box-shadow: 0 10px 20px rgba(0, 193, 252, 0.95); /* Custom blue shadow for dark mode */
 }
 
 .shadow-blue-500 {
-  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.5); /* Blue shadow */
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5); /* Blue shadow for light mode */
 }
