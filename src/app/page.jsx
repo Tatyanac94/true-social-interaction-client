@@ -7,7 +7,7 @@ import Comments from '../app/components/comments';
 import axios from 'axios';
 import Likes from '../app/components/likes';
 import { useTheme } from '../app/themeContext';
-import errorHandler from '../utils/errorHandler'; 
+import errorHandler from '../utils/errorHandling'; 
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
