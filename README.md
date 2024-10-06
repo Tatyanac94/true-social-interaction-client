@@ -1,37 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# True Social Interaction
 
-## Getting Started
+## Author: Tatyana Cuttino
 
-First, run the development server:
+## Description
+
+True Social Interaction is a front-end application designed to create a genuine and irreversible social experience for users. Unlike traditional platforms, users can engage with content through posts, comments, and likes, with no option to edit or delete their interactions. This ensures that every contribution is final and authentic, reflecting the true nature of social interactions in a digital space.
+
+The app features a seamless interface for creating and sharing thoughts, fostering a real sense of community. At its core, True Social Interaction embodies the philosophy that every voice matters and every statement is a commitment, making it a unique space for honest expression. Users can also choose between dark mode and light mode, tailoring their viewing experience to their preference.
+
+## How to Run
+
+Clone the repository: <https://github.com/Tatyanac94/true-social-interaction-client.git>
+
+Navigate to the project directory:
+
+```bash
+cd [project-directory]
+```
+
+## Installation Command
+
+Install dependencies using the following command:
+
+```bash
+npm install
+```
+
+## Set Up Environmental Variables
+
+Create a `.env.local` file in the root directory of the project:
+
+```plaintext
+NEXT_PUBLIC_API_URL=https://social-interaction.vercel.app/api
+```
+
+## Run the Server
+
+For production:
+
+```bash
+npm start
+```
+
+For development with auto-reloading:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and navigate to <http://localhost:3000> to see the app in action.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Permanent Interactions**: Users cannot edit or delete posts, comments, or likes, promoting authenticity and ensuring that all interactions are final.
+- **Dark Mode and Light Mode**: Switch between dark and light themes to optimize the viewing experience based on user preference.
+- **User-Friendly Interface**: Enjoy an intuitive design for seamless navigation and interaction.
+- **Anonymous Participation**: Choose to remain anonymous if users prefer not to disclose their identity.
+- **Real-Time Updates**: Experience dynamic engagement with posts, comments, and likes updated in real-time, enhancing user interaction.
 
-## Learn More
+## Technologies and Resources Used
 
-To learn more about Next.js, take a look at the following resources:
+- React: A JavaScript library for building user interfaces.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Tailwind CSS: A utility-first CSS framework for styling.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Axios: HTTP client for making requests to the backend API.
 
-## Deploy on Vercel
+- Vercel: Deployment platform for serverless functions and static sites.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- JavaScript: Programming language used for client-side logic.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# social-interaction-client
+- Local Storage: Used for storing user preferences such as theme settings.
