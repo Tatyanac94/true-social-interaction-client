@@ -1,52 +1,75 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 
 const Likes = ({ postId }) => {
   const [likes, setLikes] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
+  const [tooltipVisible, setTooltipVisible] = useState(false);
 
-  const fetchLikes = async () => {
+  const fetchLikes = useCallback(async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}/likes`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/likes/posts/${postId}/likes`);
       setLikes(response.data);
+      
+      const username = localStorage.getItem('username');
+      if (username) {
+        setIsLiked(response.data.some(like => like.username === username));
+      }
     } catch (error) {
       console.error('Error fetching likes:', error);
     }
-  };
+  }, [postId]);
 
-  const handleLike = async () => {
+  const handleLike = async (e) => {
+    e.preventDefault();
+    const username = prompt("Enter your name (optional):");
+  
+    if (username === null || username.trim() === '') {
+      return; 
+    }
+    
+    localStorage.setItem('username', username);
+  
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}/likes`);
-      fetchLikes(); // Refresh likes
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/likes/posts/${postId}/likes`, { username });
+      setLikes((prevLikes) => [...prevLikes, { username }]);
+      setIsLiked(true);
     } catch (error) {
       console.error('Error liking post:', error);
-    }
-  };
-
-  const handleUnlike = async (likeId) => {
-    try {
-      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/likes/${likeId}`);
-      fetchLikes(); // Refresh likes
-    } catch (error) {
-      console.error('Error unliking post:', error);
+      if (error.response && error.response.status === 400) {
+        alert("You have already liked this post.");
+      } else {
+        alert("An error occurred while liking the post.");
+      }
     }
   };
 
   useEffect(() => {
-    fetchLikes();
-  }, [postId]);
+    fetchLikes(); 
+  }, [fetchLikes]);
 
   return (
-    <div>
-      <button onClick={handleLike}>Like</button>
-      <ul>
-        {likes.map((like) => (
-          <li key={like.id}>
-            Like <button onClick={() => handleUnlike(like.id)}>Unlike</button>
-          </li>
-        ))}
-      </ul>
+    <div style={{ position: 'relative' }}>
+      <button 
+        onClick={handleLike} 
+        onMouseEnter={() => setTooltipVisible(true)} 
+        onMouseLeave={() => setTooltipVisible(false)}
+        className="likes-button"
+      >
+        Likes: {likes.length} {isLiked ? '👍' : ''}
+      </button>
+
+      {tooltipVisible && likes.length > 0 && (
+        <div className="tooltip">
+          <ul>
+            {likes.map((like, index) => (
+              <li key={index}>{like.username}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

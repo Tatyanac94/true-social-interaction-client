@@ -107,3 +107,33 @@ body.dark .theme-toggle {
 body.dark .theme-toggle:hover {
   background-color: var(--button-hover-color-dark); /* Theme toggle hover color in dark mode */
 }
+
+
+.likes-button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline; /* Makes it look like a link */
+  padding: 8px; /* Optional padding for better click area */
+}
+
+.tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other content */
+  top: 30px; /* Adjust as necessary to position the tooltip */
+  left: 0; /* Adjust as necessary */
+}
+
+.tooltip ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.tooltip li {
+  margin: 5px 0; /* Spacing between usernames */
+}

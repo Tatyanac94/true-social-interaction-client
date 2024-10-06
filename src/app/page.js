@@ -5,6 +5,7 @@ import CreatePost from '../app/components/createPost';
 import ThemeToggle from '../app/components/themeToggle';
 import Comments from '../app/components/comments';
 import axios from 'axios';
+import Likes from '../app/components/likes';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -28,17 +29,16 @@ const Home = () => {
       <h1 className="text-2xl font-bold text-blue-500 underline mb-4">Posts</h1>
       <CreatePost onPostCreated={fetchPosts} />
       <ul className="w-full mt-4">
-  {posts.map((post) => (
-    <li key={post.id} className="bg-white shadow-lg rounded-lg p-4 mb-4">
-      <h2 className="text-lg">{post.content}</h2>
-      <p>By: {post.username}</p>
-      <p>Likes: {post.likeCount}</p>
-      <p className="text-sm text-gray-500">Posted on: {new Date(post.timestamp).toLocaleString()}</p>
-      <Comments postId={post.id} existingComments={post.comments || []} />
-    </li>
-  ))}
-</ul>
-
+        {posts.map((post) => (
+          <li key={post.id} className="bg-white shadow-lg rounded-lg p-4 mb-4 relative">
+            <h2 className="text-lg">{post.content}</h2>
+            <p>By: {post.username}</p>
+            <Likes postId={post.id} existingLikes={post.likes || []} />
+            <p className="text-sm text-gray-500">Posted on: {new Date(post.timestamp).toLocaleString()}</p>
+            <Comments postId={post.id} existingComments={post.comments || []} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

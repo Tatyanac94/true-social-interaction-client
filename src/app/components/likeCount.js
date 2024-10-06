@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react'; 
 import axios from 'axios';
 
 const LikeCount = ({ postId }) => {
@@ -6,16 +6,16 @@ const LikeCount = ({ postId }) => {
 
   const fetchLikes = useCallback(async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}/likes`);
-      setLikeCount(response.data.length); // Assuming the response is an array of likes
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/likes/posts/${postId}/likes`);
+      setLikeCount(response.data.length);
     } catch (error) {
       console.error('Error fetching likes:', error);
     }
-  }, [postId]); // Dependency on postId
+  }, [postId]);
 
   useEffect(() => {
     fetchLikes();
-  }, [fetchLikes]); // Dependency on fetchLikes
+  }, [fetchLikes]);
 
   return <span>{likeCount} {likeCount === 1 ? 'like' : 'likes'}</span>;
 };
